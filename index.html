@@ -4,311 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Fixed CSS path -->
+    <link rel="stylesheet" href="styles.css">
 
-    <!-- =====BOX ICONS===== -->
+    <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Akshay Darekar | Clinical SAS Portfolio</title>
     <style>
-        /* Additional inline style to ensure popup displays correctly */
         #success-popup { display: none; }
     </style>
 </head>
 <body>
 
-    <!--===== HEADER =====-->
-    <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="#" class="nav__logo">Akshay</a>
-            </div>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
-        </nav>
-    </header>
-
-    <main class="l-main">
-        <!--===== HOME =====-->
-        <section class="home bd-grid" id="home" style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;">
-
-            <!-- Particles Background -->
-            <div id="particles-js" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></div>
-
-            <!-- Home Content -->
-            <div style="position:relative; z-index:1;">
-                <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Akshay</span><br>Statistical Programmer</h1>
-
-                <!-- ===== ADDED: LinkedIn & GitHub icons above buttons ===== -->
-                <div style="display:flex; gap:25px; justify-content:center; margin:20px 0 10px;">
-                    <a href="https://linkedin.com/in/akshay-sas" target="_blank" rel="noopener noreferrer" style="font-size: 2.5rem; color: #4c8cff; transition: color 0.3s;"><i class='bx bxl-linkedin-square'></i></a>
-                    <a href="https://github.com/darekar123akshay-byte" target="_blank" rel="noopener noreferrer" style="font-size: 2.5rem; color: #4c8cff; transition: color 0.3s;"><i class='bx bxl-github'></i></a>
-                </div>
-
-                <!-- Contact + Download CV buttons -->
-                <div style="display:flex; gap:15px; justify-content:center; margin-top:10px; flex-wrap:wrap;">
-                    <a href="#contact" class="button">Contact</a>
-                    <a href="https://raw.githubusercontent.com/darekar123akshay-byte/Akshay-CV/main/DAREKAR%20AKSHAY(CV).pdf" 
-                       download="DAREKAR_AKSHAY_CV.pdf" 
-                       class="button"
-                       style="background: linear-gradient(90deg,#4c8cff,#00f0ff); color: #fff;">
-                        Download CV
-                    </a>
-                </div>
-            </div>
-
-        </section>
-
-        <!--===== PARTICLES JS =====-->
-        <script src="https://cdn.jsdelivr.net/gh/darekar123akshay-byte/Akshay-CV/particles.min.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                particlesJS("particles-js", {
-                    "particles": {
-                        "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-                        "color": { "value": "#4c8cff" },
-                        "shape": { "type": "circle" },
-                        "opacity": { "value": 0.5 },
-                        "size": { "value": 3, "random": true },
-                        "line_linked": { "enable": true, "distance": 150, "color": "#4c8cff", "opacity": 0.4, "width": 1 },
-                        "move": { "enable": true, "speed": 3, "out_mode": "out" }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
-                        "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
-                    },
-                    "retina_detect": true
-                });
-            });
-        </script>
-
-        <!--===== ABOUT =====-->
-        <section class="about section" id="about">
-            <h2 class="section-title">About</h2>
-            <div class="about__container bd-grid">
-                <div class="about__img">
-                    <img src="assets/img/about.jpg" alt="Akshay Darekar">
-                </div>
-                <div>
-                    <h2 class="about__subtitle">I'm Akshay Darekar</h2>
-                    <p class="about__text">
-                        I am a Clinical SAS Programmer with a Bachelor of Pharmacy degree.
-                        I have hands-on experience in Base and Advance SAS, SDTM and ADaMs domains, data cleaning, 
-                        dataset creation, and clinical data analysis. 
-                        I have completed an apprenticeship in Clinical SAS and worked on projects involving 
-                        COVID-19 data analysis, report generation, and Define-XML documentation.
-                        <br><br>
-                        I am passionate about clinical research, data standards, and transforming raw clinical 
-                        data into meaningful insights that support regulatory submissions and decision-making.
-                    </p>           
-                </div>                                   
-            </div>
-        </section>
-
-        <!--===== SKILLS =====-->
-        <section class="skills section" id="skills">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills__container bd-grid">
-                <div>
-                    <h2 class="skills__subtitle">Clinical SAS Skills</h2>
-                    <p class="skills__text">
-                        Experienced in Clinical SAS Programming with strong knowledge of CDISC standards,
-                        SDTM, ADaM, data validation, and regulatory-compliant dataset creation.
-                    </p>
-
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-data skills__icon'></i><span class="skills__name">Base SAS</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-code-alt skills__icon'></i><span class="skills__name">Advanced SAS</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-layer skills__icon'></i><span class="skills__name">SDTM</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-bar-chart-alt-2 skills__icon'></i><span class="skills__name">ADaM</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-data skills__icon'></i><span class="skills__name">PROC SQL</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-terminal skills__icon'></i><span class="skills__name">SAS Macro Programming</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-check-shield skills__icon'></i><span class="skills__name">Dataset Validation</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-file skills__icon'></i><span class="skills__name">CDISC Standards</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names"><i class='bx bx-detail skills__icon'></i><span class="skills__name">Define-XML</span></div>
-                        <div class="skills__bar" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div><img src="assets/img/work3.jpg" alt="Clinical SAS Skills" class="skills__img"></div>
-            </div>
-        </section>
-
-        <!--===== PROJECTS =====-->
-        <section class="work section" id="work">
-            <h2 class="section-title">Projects</h2>
-            <div class="work__container bd-grid">
-
-                <div class="work__img">
-                    <img src="assets/img/work1.jpg" alt="COVID-19 Data Analysis">
-                    <p style="padding:10px; text-align:center;"><strong>COVID-19 Data Analysis</strong><br>Performed statistical analysis using PROC MEANS, FREQ, UNIVARIATE and generated summary reports.</p>
-                </div>
-                <div class="work__img">
-                    <img src="assets/img/work2.jpg" alt="SDTM DM Domain">
-                    <p style="padding:10px; text-align:center;"><strong>SDTM Dataset Creation</strong><br>Created SDTM datasets following CDISC standards for regulatory compliance.</p>
-                </div>
-                <div class="work__img">
-                    <img src="assets/img/work3.jpg" alt="ADaM Dataset">
-                    <p style="padding:10px; text-align:center;"><strong>ADaM Dataset Creation</strong><br>Developed analysis-ready datasets for clinical study reporting.</p>
-                </div>
-                <div class="work__img">
-                    <img src="assets/img/work4.jpg" alt="Define XML">
-                    <p style="padding:10px; text-align:center;"><strong>Define-XML Documentation</strong><br>Generated metadata documentation aligned with CDISC standards.</p>
-                </div>
-                <div class="work__img">
-                    <img src="assets/img/work5.jpg" alt="Dataset Validation">
-                    <p style="padding:10px; text-align:center;"><strong>Dataset Validation</strong><br>Conducted validation checks to ensure data quality and accuracy.</p>
-                </div>
-                <div class="work__img">
-                    <img src="assets/img/work6.jpg" alt="SAS Macro Programming">
-                    <p style="padding:10px; text-align:center;"><strong>SAS Macro Automation</strong><br>Developed reusable macros to automate repetitive clinical programming tasks.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!--===== CONTACT =====-->
-        <section class="contact section" id="contact">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact__container bd-grid">
-                <form action="https://formspree.io/f/mwvnvgzy" 
-                      method="POST" 
-                      autocomplete="off"
-                      class="contact__form" id="contactForm">
-
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none">
-
-                    <input type="text" name="name" placeholder="Your Name" class="contact__input" required>
-                    <input type="email" name="email" placeholder="Your Email" class="contact__input" required>
-                    <textarea name="message" rows="8" placeholder="Your Message" class="contact__input" required></textarea>
-
-                    <button type="submit" class="contact__button button">Send Message</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- SUCCESS POPUP (fixed with working JS) -->
-        <div id="success-popup" 
-             style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-             background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
-
-            <div style="background:white; padding:30px; border-radius:12px; 
-                        text-align:center; max-width:400px; margin:auto;">
-
-                <h3 style="color:#3b5bdb;">✅ Message Sent Successfully!</h3>
-                <p>Thank you for contacting me. I will get back to you soon.</p>
-                <button onclick="closePopup()" 
-                        style="padding:8px 20px; border:none; border-radius:6px; 
-                        background:#3b5bdb; color:white; cursor:pointer;">
-                    OK
-                </button>
-
-            </div>
+<!--===== HEADER =====-->
+<header class="l-header">
+    <nav class="nav bd-grid">
+        <div>
+            <a href="#" class="nav__logo">Akshay</a>
         </div>
 
-    </main>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
 
-    <!--===== FOOTER =====-->
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+    </nav>
+</header>
+
+<main class="l-main">
+
+    <!--===== HOME =====-->
+    <section class="home bd-grid" id="home">
+        <div>
+            <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Akshay</span><br>Statistical Programmer</h1>
+
+            <div style="display:flex; gap:25px; justify-content:center; margin:20px 0 10px;">
+                <a href="https://linkedin.com/in/akshay-sas" target="_blank" style="font-size: 2.5rem; color: #4c8cff;"><i class='bx bxl-linkedin-square'></i></a>
+                <a href="https://github.com/darekar123akshay-byte" target="_blank" style="font-size: 2.5rem; color: #4c8cff;"><i class='bx bxl-github'></i></a>
+            </div>
+
+            <div style="display:flex; gap:15px; justify-content:center; margin-top:10px; flex-wrap:wrap;">
+                <a href="#contact" class="button">Contact</a>
+                <a href="https://raw.githubusercontent.com/darekar123akshay-byte/Akshay-portfolio/main/DAREKAR%20AKSHAY(CV).pdf" 
+                   download="DAREKAR_AKSHAY_CV.pdf" class="button" style="background: linear-gradient(90deg,#4c8cff,#00f0ff); color: #fff;">
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--===== ABOUT =====-->
+    <section class="about section" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about__container bd-grid">
+            <div class="about__img">
+                <img src="about.jpg" alt="Akshay Darekar">
+            </div>
+            <div>
+                <h2 class="about__subtitle">I'm Akshay Darekar</h2>
+                <p class="about__text">
+                    I am a Clinical SAS Programmer with a Bachelor of Pharmacy degree.
+                </p>           
+            </div>                                   
+        </div>
+    </section>
+
+    <!--===== SKILLS =====-->
+    <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills__container bd-grid">
+            <div>
+                <h2 class="skills__subtitle">Clinical SAS Skills</h2>
+            </div>
+            <div><img src="work3.jpg" alt="Clinical SAS Skills" class="skills__img"></div>
+        </div>
+    </section>
+
+    <!--===== PROJECTS =====-->
+    <section class="work section" id="work">
+        <h2 class="section-title">Projects</h2>
+        <div class="work__container bd-grid">
+
+            <div class="work__img"><img src="work1.jpg" alt="COVID-19 Data Analysis"></div>
+            <div class="work__img"><img src="work2.jpg" alt="SDTM DM Domain"></div>
+            <div class="work__img"><img src="work3.jpg" alt="ADaM Dataset"></div>
+            <div class="work__img"><img src="work4.jpg" alt="Define XML"></div>
+            <div class="work__img"><img src="work5.jpg" alt="Dataset Validation"></div>
+            <div class="work__img"><img src="work6.jpg" alt="SAS Macro Automation"></div>
+
+        </div>
+    </section>
+
+    <!--===== CONTACT =====-->
+    <section class="contact section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact__container bd-grid">
+            <form action="https://formspree.io/f/mwvnvgzy" method="POST" class="contact__form">
+                <input type="text" name="name" placeholder="Your Name" class="contact__input" required>
+                <input type="email" name="email" placeholder="Your Email" class="contact__input" required>
+                <textarea name="message" rows="8" placeholder="Your Message" class="contact__input" required></textarea>
+                <button type="submit" class="contact__button button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <footer class="footer">
         <p class="footer__title">Akshay Darekar</p>
-        <div class="footer__social">
-            <!-- LinkedIn & GitHub icons remain at bottom -->
-            <a href="https://linkedin.com/in/akshay-sas" class="footer__icon" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin-square'></i></a>
-            <a href="https://github.com/darekar123akshay-byte" class="footer__icon" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-        </div>
         <p class="footer__copy">&#169;2026. AD. All rights reserved</p>
     </footer>
 
-    <!--===== SCROLL REVEAL AND MAIN JS =====-->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="assets/js/main.js"></script>
+</main>
 
-    <!--===== FIX: POPUP AND AJAX FORM SUBMISSION =====-->
-    <script>
-        (function() {
-            // Ensure popup is hidden initially and close function works
-            const popup = document.getElementById('success-popup');
-            if (popup) popup.style.display = 'none';
+<!-- Fixed JS path -->
+<script src="main.js"></script>
 
-            // Make closePopup function global
-            window.closePopup = function() {
-                if (popup) popup.style.display = 'none';
-            };
-
-            // Handle form submission with fetch to show popup on success
-            const form = document.getElementById('contactForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Stop default browser submission
-
-                    const formData = new FormData(form);
-                    const action = form.getAttribute('action');
-
-                    fetch(action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            return response.json();
-                        }
-                        throw new Error('Network response was not ok.');
-                    })
-                    .then(data => {
-                        if (data.ok) {
-                            // Show popup
-                            if (popup) popup.style.display = 'flex';
-                            form.reset(); // Clear form fields
-                        } else {
-                            alert('Formspree returned an error. Please try again.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Sorry, there was a problem sending your message. Please try again later.');
-                    });
-                });
-            }
-        })();
-    </script>
-    <!-- Note: The main.js file may still contain its own code, but it won't interfere -->
 </body>
 </html>
