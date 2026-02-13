@@ -4,15 +4,468 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fixed CSS path -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- ===== BOX ICONS ===== -->
+    <!-- Box Icons CDN -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Akshay Darekar | Clinical SAS Portfolio</title>
+
+    <!-- Embedded CSS (replaces external styles.css) -->
     <style>
-        #success-popup { display: none; }
+        /*===== GOOGLE FONTS =====*/
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+        /*===== VARIABLES CSS =====*/
+        :root {
+            --header-height: 3rem;
+            --font-semi: 600;
+            --hue-color: 224;
+            --first-color: hsl(var(--hue-color), 89%, 60%);
+            --second-color: hsl(var(--hue-color), 56%, 12%);
+            --body-font: 'Poppins', sans-serif;
+            --big-font-size: 2rem;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: .938rem;
+            --smaller-font-size: .75rem;
+            --mb-2: 1rem;
+            --mb-4: 2rem;
+            --mb-5: 2.5rem;
+            --mb-6: 3rem;
+            --z-back: -10;
+            --z-fixed: 100;
+        }
+
+        @media screen and (min-width: 968px) {
+            :root {
+                --big-font-size: 3.5rem;
+                --h2-font-size: 2rem;
+                --normal-font-size: 1rem;
+                --smaller-font-size: .875rem;
+            }
+        }
+
+        /*===== BASE =====*/
+        *, ::before, ::after {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: var(--header-height) 0 0 0;
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            color: var(--second-color);
+        }
+        h1, h2, p {
+            margin: 0;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /*===== CLASS CSS ===== */
+        .section-title {
+            position: relative;
+            font-size: var(--h2-font-size);
+            color: var(--first-color);
+            margin-top: var(--mb-2);
+            margin-bottom: var(--mb-4);
+            text-align: center;
+        }
+        .section-title::after {
+            position: absolute;
+            content: '';
+            width: 64px;
+            height: 0.18rem;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 2rem;
+            background-color: var(--first-color);
+        }
+        .section {
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        /*===== LAYOUT =====*/
+        .bd-grid {
+            max-width: 1024px;
+            display: grid;
+            margin-left: var(--mb-2);
+            margin-right: var(--mb-2);
+        }
+        .l-header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: var(--z-fixed);
+            background-color: #fff;
+            box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+        }
+
+        /*===== NAV =====*/
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: var(--font-semi);
+        }
+        @media screen and (max-width: 767px) {
+            .nav__menu {
+                position: fixed;
+                top: var(--header-height);
+                right: -100%;
+                width: 80%;
+                height: 100%;
+                padding: 2rem;
+                background-color: var(--second-color);
+                transition: .5s;
+            }
+        }
+        .nav__item {
+            margin-bottom: var(--mb-4);
+        }
+        .nav__link {
+            position: relative;
+            color: #fff;
+        }
+        .nav__link:hover {
+            position: relative;
+        }
+        .nav__link:hover::after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 0.18rem;
+            left: 0;
+            top: 2rem;
+            background-color: var(--first-color);
+        }
+        .nav__logo {
+            color: var(--second-color);
+        }
+        .nav__toggle {
+            color: var(--second-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /*Active menu*/
+        .active-link::after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 0.18rem;
+            left: 0;
+            top: 2rem;
+            background-color: var(--first-color);
+        }
+        /*=== Show menu ===*/
+        .show {
+            right: 0;
+        }
+
+        /*===== HOME =====*/
+        .home {
+            position: relative;
+            row-gap: 5rem;
+            padding: 4rem 0 5rem;
+        }
+        .home__title {
+            font-size: var(--big-font-size);
+            margin-bottom: var(--mb-5);
+        }
+        .home__title-color {
+            color: var(--first-color);
+        }
+        .home__social {
+            display: flex;
+            flex-direction: column;
+        }
+        .home__social-icon {
+            width: max-content;
+            margin-bottom: var(--mb-2);
+            font-size: 1.5rem;
+            color: var(--second-color);
+        }
+        .home__social-icon:hover {
+            color: var(--first-color);
+        }
+        .home__img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 260px;
+        }
+        .home__blob {
+            fill: var(--first-color);
+        }
+        .home__blob-img {
+            width: 360px;
+        }
+
+        /*BUTTONS*/
+        .button {
+            display: inline-block;
+            background-color: var(--first-color);
+            color: #fff;
+            padding: .75rem 2.5rem;
+            font-weight: var(--font-semi);
+            border-radius: .5rem;
+            transition: .3s;
+        }
+        .button:hover {
+            box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== ABOUT =====*/
+        .about__container {
+            row-gap: 2rem;
+            text-align: center;
+        }
+        .about__subtitle {
+            margin-bottom: var(--mb-2);
+        }
+        .about__img {
+            justify-self: center;
+        }
+        .about__img img {
+            width: 200px;
+            border-radius: .5rem;
+        }
+
+        /* ===== SKILLS =====*/
+        .skills__container {
+            row-gap: 2rem;
+            text-align: center;
+        }
+        .skills__subtitle {
+            margin-bottom: var(--mb-2);
+        }
+        .skills__text {
+            margin-bottom: var(--mb-4);
+        }
+        .skills__data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            font-weight: var(--font-semi);
+            padding: .5rem 1rem;
+            margin-bottom: var(--mb-4);
+            border-radius: .5rem;
+            box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+        }
+        .skills__icon {
+            font-size: 2rem;
+            margin-right: var(--mb-2);
+            color: var(--first-color);
+        }
+        .skills__names {
+            display: flex;
+            align-items: center;
+        }
+        .skills__bar {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: var(--first-color);
+            height: .25rem;
+            border-radius: .5rem;
+            z-index: var(--z-back);
+        }
+        .skills__img {
+            border-radius: .5rem;
+        }
+
+        /* ===== WORK =====*/
+        .work__container {
+            row-gap: 2rem;
+        }
+        .work__img {
+            box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+            border-radius: .5rem;
+            overflow: hidden;
+        }
+        .work__img img {
+            transition: 1s;
+        }
+        .work__img img:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== CONTACT =====*/
+        .contact__input {
+            width: 100%;
+            font-size: var(--normal-font-size);
+            font-weight: var(--font-semi);
+            padding: 1rem;
+            border-radius: .5rem;
+            border: 1.5px solid var(--second-color);
+            outline: none;
+            margin-bottom: var(--mb-4);
+        }
+        .contact__button {
+            display: block;
+            border: none;
+            outline: none;
+            font-size: var(--normal-font-size);
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        /* ===== FOOTER =====*/
+        .footer {
+            background-color: var(--second-color);
+            color: #fff;
+            text-align: center;
+            font-weight: var(--font-semi);
+            padding: 2rem 0;
+        }
+        .footer__title {
+            font-size: 2rem;
+            margin-bottom: var(--mb-4);
+        }
+        .footer__social {
+            margin-bottom: var(--mb-4);
+        }
+        .footer__icon {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0 var(--mb-2);
+        }
+        .footer__copy {
+            font-size: var(--smaller-font-size);
+        }
+
+        /* ===== MEDIA QUERIES =====*/
+        @media screen and (max-width: 320px) {
+            .home {
+                row-gap: 2rem;
+            }
+            .home__img {
+                width: 200px;
+            }
+        }
+        @media screen and (min-width: 576px) {
+            .home {
+                padding: 4rem 0 2rem;
+            }
+            .home__social {
+                padding-top: 0;
+                padding-bottom: 2.5rem;
+                flex-direction: row;
+                align-self: flex-end;
+            }
+            .home__social-icon {
+                margin-bottom: 0;
+                margin-right: var(--mb-4);
+            }
+            .home__img {
+                width: 300px;
+                bottom: 25%;
+            }
+            .about__container {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+                text-align: initial;
+            }
+            .skills__container {
+                grid-template-columns: .7fr;
+                justify-content: center;
+                column-gap: 1rem;
+            }
+            .work__container {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 2rem;
+                padding-top: 2rem;
+            }
+            .contact__form {
+                width: 360px;
+                margin: 0 auto;
+            }
+            .contact__container {
+                justify-items: center;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            body {
+                margin: 0;
+            }
+            .section {
+                padding-top: 4rem;
+                padding-bottom: 3rem;
+            }
+            .section-title {
+                margin-bottom: var(--mb-6);
+            }
+            .section-title::after {
+                width: 80px;
+                top: 3rem;
+            }
+            .nav {
+                height: calc(var(--header-height) + 1.5rem);
+            }
+            .nav__list {
+                display: flex;
+                padding-top: 0;
+            }
+            .nav__item {
+                margin-left: var(--mb-6);
+                margin-bottom: 0;
+            }
+            .nav__toggle {
+                display: none;
+            }
+            .nav__link {
+                color: var(--second-color);
+            }
+            .home {
+                padding: 8rem 0 2rem;
+            }
+            .home__img {
+                width: 400px;
+                bottom: 10%;
+            }
+            .about__container {
+                padding-top: 2rem;
+            }
+            .about__img img {
+                width: 300px;
+            }
+            .skills__container {
+                grid-template-columns: repeat(2, 1fr);
+                text-align: initial;
+            }
+            .work__container {
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 2rem;
+            }
+        }
+        @media screen and (min-width: 992px) {
+            .bd-grid {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .home {
+                padding: 10rem 0 2rem;
+            }
+            .home__img {
+                width: 450px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -43,24 +496,50 @@
 <main class="l-main">
 
     <!--===== HOME =====-->
-    <section class="home bd-grid" id="home">
-        <div>
+    <section class="home bd-grid" id="home" style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;">
+        <!-- Particles Background -->
+        <div id="particles-js" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></div>
+
+        <div style="position:relative; z-index:1;">
             <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Akshay</span><br>Statistical Programmer</h1>
 
+            <!-- LinkedIn & GitHub Icons -->
             <div style="display:flex; gap:25px; justify-content:center; margin:20px 0 10px;">
                 <a href="https://linkedin.com/in/akshay-sas" target="_blank" style="font-size: 2.5rem; color: #4c8cff;"><i class='bx bxl-linkedin-square'></i></a>
                 <a href="https://github.com/darekar123akshay-byte" target="_blank" style="font-size: 2.5rem; color: #4c8cff;"><i class='bx bxl-github'></i></a>
             </div>
 
+            <!-- Contact & Download Buttons -->
             <div style="display:flex; gap:15px; justify-content:center; margin-top:10px; flex-wrap:wrap;">
                 <a href="#contact" class="button">Contact</a>
-                <a href="https://raw.githubusercontent.com/darekar123akshay-byte/Akshay-portfolio/main/DAREKAR%20AKSHAY(CV).pdf" 
-                   download="DAREKAR_AKSHAY_CV.pdf" class="button" style="background: linear-gradient(90deg,#4c8cff,#00f0ff); color: #fff;">
-                    Download CV
-                </a>
+                <a href="https://raw.githubusercontent.com/darekar123akshay-byte/Akshay-portfolio/main/DAREKAR%20AKSHAY(CV).pdf" download="DAREKAR_AKSHAY_CV.pdf" class="button" style="background: linear-gradient(90deg,#4c8cff,#00f0ff); color: #fff;">Download CV</a>
             </div>
         </div>
     </section>
+
+    <!-- Particles JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#4c8cff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5 },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#4c8cff", "opacity": 0.4, "width": 1 },
+                    "move": { "enable": true, "speed": 3, "out_mode": "out" }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
+                    "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>
 
     <!--===== ABOUT =====-->
     <section class="about section" id="about">
@@ -73,6 +552,13 @@
                 <h2 class="about__subtitle">I'm Akshay Darekar</h2>
                 <p class="about__text">
                     I am a Clinical SAS Programmer with a Bachelor of Pharmacy degree.
+                    I have hands-on experience in Base and Advance SAS, SDTM and ADaMs domains, data cleaning, 
+                    dataset creation, and clinical data analysis. 
+                    I have completed an apprenticeship in Clinical SAS and worked on projects involving 
+                    COVID-19 data analysis, report generation, and Define-XML documentation.
+                    <br><br>
+                    I am passionate about clinical research, data standards, and transforming raw clinical 
+                    data into meaningful insights that support regulatory submissions and decision-making.
                 </p>           
             </div>                                   
         </div>
@@ -84,8 +570,78 @@
         <div class="skills__container bd-grid">
             <div>
                 <h2 class="skills__subtitle">Clinical SAS Skills</h2>
+                <p class="skills__text">
+                    Experienced in Clinical SAS Programming with strong knowledge of CDISC standards,
+                    SDTM, ADaM, data validation, and regulatory-compliant dataset creation.
+                </p>
+
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-data skills__icon'></i>
+                        <span class="skills__name">Base SAS</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-code-alt skills__icon'></i>
+                        <span class="skills__name">Advanced SAS</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-layer skills__icon'></i>
+                        <span class="skills__name">SDTM</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-bar-chart-alt-2 skills__icon'></i>
+                        <span class="skills__name">ADaM</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-data skills__icon'></i>
+                        <span class="skills__name">PROC SQL</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-terminal skills__icon'></i>
+                        <span class="skills__name">SAS Macro Programming</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-check-shield skills__icon'></i>
+                        <span class="skills__name">Dataset Validation</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-file skills__icon'></i>
+                        <span class="skills__name">CDISC Standards</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bx-detail skills__icon'></i>
+                        <span class="skills__name">Define-XML</span>
+                    </div>
+                    <div class="skills__bar" style="width: 100%;"></div>
+                </div>
             </div>
-            <div><img src="work3.jpg" alt="Clinical SAS Skills" class="skills__img"></div>
+            <div>
+                <img src="work3.jpg" alt="Clinical SAS Skills" class="skills__img">
+            </div>
         </div>
     </section>
 
@@ -93,14 +649,30 @@
     <section class="work section" id="work">
         <h2 class="section-title">Projects</h2>
         <div class="work__container bd-grid">
-
-            <div class="work__img"><img src="work1.jpg" alt="COVID-19 Data Analysis"></div>
-            <div class="work__img"><img src="work2.jpg" alt="SDTM DM Domain"></div>
-            <div class="work__img"><img src="work3.jpg" alt="ADaM Dataset"></div>
-            <div class="work__img"><img src="work4.jpg" alt="Define XML"></div>
-            <div class="work__img"><img src="work5.jpg" alt="Dataset Validation"></div>
-            <div class="work__img"><img src="work6.jpg" alt="SAS Macro Automation"></div>
-
+            <div class="work__img">
+                <img src="work1.jpg" alt="COVID-19 Data Analysis">
+                <p style="padding:10px; text-align:center;"><strong>COVID-19 Data Analysis</strong><br>Performed statistical analysis using PROC MEANS, FREQ, UNIVARIATE and generated summary reports.</p>
+            </div>
+            <div class="work__img">
+                <img src="work2.jpg" alt="SDTM DM Domain">
+                <p style="padding:10px; text-align:center;"><strong>SDTM Dataset Creation</strong><br>Created SDTM datasets following CDISC standards for regulatory compliance.</p>
+            </div>
+            <div class="work__img">
+                <img src="work3.jpg" alt="ADaM Dataset">
+                <p style="padding:10px; text-align:center;"><strong>ADaM Dataset Creation</strong><br>Developed analysis-ready datasets for clinical study reporting.</p>
+            </div>
+            <div class="work__img">
+                <img src="work4.jpg" alt="Define XML">
+                <p style="padding:10px; text-align:center;"><strong>Define-XML Documentation</strong><br>Generated metadata documentation aligned with CDISC standards.</p>
+            </div>
+            <div class="work__img">
+                <img src="work5.jpg" alt="Dataset Validation">
+                <p style="padding:10px; text-align:center;"><strong>Dataset Validation</strong><br>Conducted validation checks to ensure data quality and accuracy.</p>
+            </div>
+            <div class="work__img">
+                <img src="work6.jpg" alt="SAS Macro Programming">
+                <p style="padding:10px; text-align:center;"><strong>SAS Macro Automation</strong><br>Developed reusable macros to automate repetitive clinical programming tasks.</p>
+            </div>
         </div>
     </section>
 
@@ -108,7 +680,7 @@
     <section class="contact section" id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact__container bd-grid">
-            <form action="https://formspree.io/f/mwvnvgzy" method="POST" class="contact__form">
+            <form action="https://formspree.io/f/mwvnvgzy" method="POST" class="contact__form" id="contactForm">
                 <input type="text" name="name" placeholder="Your Name" class="contact__input" required>
                 <input type="email" name="email" placeholder="Your Email" class="contact__input" required>
                 <textarea name="message" rows="8" placeholder="Your Message" class="contact__input" required></textarea>
@@ -117,15 +689,98 @@
         </div>
     </section>
 
+    <!-- Success Popup -->
+    <div id="success-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
+        <div style="background:white; padding:30px; border-radius:12px; text-align:center; max-width:400px; margin:auto;">
+            <h3 style="color:#3b5bdb;">✅ Message Sent Successfully!</h3>
+            <p>Thank you for contacting me. I will get back to you soon.</p>
+            <button onclick="closePopup()" style="padding:8px 20px; border:none; border-radius:6px; background:#3b5bdb; color:white; cursor:pointer;">OK</button>
+        </div>
+    </div>
+
     <footer class="footer">
         <p class="footer__title">Akshay Darekar</p>
+        <div class="footer__social">
+            <a href="https://linkedin.com/in/akshay-sas" class="footer__icon" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/darekar123akshay-byte" class="footer__icon" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
         <p class="footer__copy">&#169;2026. AD. All rights reserved</p>
     </footer>
 
 </main>
 
-<!-- Fixed JS path -->
-<script src="main.js"></script>
+<!-- Scroll Reveal -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- Embedded main.js functionality -->
+<script>
+    // Menu toggle
+    const showMenu = (toggleId, navId) => {
+        const toggle = document.getElementById(toggleId),
+              nav = document.getElementById(navId);
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                nav.classList.toggle('show');
+            });
+        }
+    };
+    showMenu('nav-toggle', 'nav-menu');
+
+    // Active link removal on click
+    const navLinks = document.querySelectorAll('.nav__link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.remove('show');
+        });
+    });
+
+    // Scroll reveal
+    const sr = ScrollReveal({
+        origin: 'top',
+        distance: '60px',
+        duration: 2000,
+        delay: 200,
+        reset: true
+    });
+    sr.reveal('.home__title', {});
+    sr.reveal('.button', { delay: 200 });
+    sr.reveal('.home__social-icon', { interval: 200 });
+    sr.reveal('.about__img', {});
+    sr.reveal('.about__subtitle', { delay: 400 });
+    sr.reveal('.about__text', { delay: 400 });
+    sr.reveal('.skills__subtitle', {});
+    sr.reveal('.skills__text', {});
+    sr.reveal('.skills__data', { interval: 200 });
+    sr.reveal('.skills__img', { delay: 600 });
+    sr.reveal('.work__img', { interval: 200 });
+    sr.reveal('.contact__input', { interval: 200 });
+
+    // Popup close function
+    window.closePopup = function() {
+        document.getElementById('success-popup').style.display = 'none';
+    };
+
+    // Form submission with popup
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('success-popup').style.display = 'flex';
+                form.reset();
+            } else {
+                alert('Error sending message. Please try again.');
+            }
+        })
+        .catch(() => alert('Error sending message. Please check your connection.'));
+    });
+</script>
 
 </body>
 </html>
