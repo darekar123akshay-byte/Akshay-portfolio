@@ -267,6 +267,11 @@
             margin-bottom: var(--mb-4);
             border-radius: .5rem;
             box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .skills__data:hover {
+            background-color: #f5f5f5;
         }
         .skills__icon {
             font-size: 2rem;
@@ -288,6 +293,32 @@
         }
         .skills__img {
             border-radius: .5rem;
+        }
+
+        /* Sub-skills styling */
+        .subskills {
+            display: none;
+            margin-left: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid var(--first-color);
+        }
+        .subskill-item {
+            display: flex;
+            align-items: center;
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+            color: var(--second-color);
+        }
+        .subskill-item i {
+            font-size: 1.5rem;
+            color: var(--first-color);
+            margin-right: 0.8rem;
+            width: 2rem;
+            text-align: center;
+        }
+        .subskill-item span {
+            text-align: left;
         }
 
         /* ===== WORK =====*/
@@ -580,13 +611,62 @@
                     SDTM, ADaM, data validation, and regulatory-compliant dataset creation.
                 </p>
 
-                <div class="skills__data">
+                <!-- Base SAS - Clickable main skill -->
+                <div class="skills__data" id="base-sas-main">
                     <div class="skills__names">
                         <i class='bx bx-data skills__icon'></i>
                         <span class="skills__name">Base SAS</span>
                     </div>
                     <div class="skills__bar" style="width: 100%;"></div>
                 </div>
+                <!-- Sub-skills under Base SAS (hidden initially) -->
+                <div class="subskills" id="base-subskills">
+                    <div class="subskill-item">
+                        <i class='bx bx-code-block'></i>
+                        <span>DATA Step Development</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-git-merge'></i>
+                        <span>Dataset Merging (SET/MERGE)</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-sort'></i>
+                        <span>BY-Group Processing (FIRST./LAST.)</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-git-branch'></i>
+                        <span>Conditional Logic & DO Loops</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-error'></i>
+                        <span>Missing Value Handling</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-brush'></i>
+                        <span>Data Cleaning & Validation</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-copy'></i>
+                        <span>Duplicate Removal (PROC SORT)</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-import'></i>
+                        <span>External File Import (CSV/Excel/Raw)</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-bar-chart-alt-2'></i>
+                        <span>Report Generation (PRINT/FREQ/MEANS/CONTENTS)</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-calendar'></i>
+                        <span>Date & Character Functions (INTNX, INTCK, SUBSTR, SCAN, COMPRESS)</span>
+                    </div>
+                    <div class="subskill-item">
+                        <i class='bx bx-transfer'></i>
+                        <span>Variable Conversion (INPUT/PUT)</span>
+                    </div>
+                </div>
+
                 <div class="skills__data">
                     <div class="skills__names">
                         <i class='bx bx-code-alt skills__icon'></i>
@@ -717,7 +797,7 @@
 <!-- Scroll Reveal -->
 <script src="https://unpkg.com/scrollreveal"></script>
 
-<!-- Embedded main.js functionality -->
+<!-- Embedded main.js functionality + Subskill Toggle -->
 <script>
     // Menu toggle
     const showMenu = (toggleId, navId) => {
@@ -784,6 +864,24 @@
             }
         })
         .catch(() => alert('Error sending message. Please check your connection.'));
+    });
+
+    // Toggle sub-skills for Base SAS
+    document.addEventListener('DOMContentLoaded', function() {
+        const baseSasDiv = document.getElementById('base-sas-main');
+        const subskills = document.getElementById('base-subskills');
+
+        if (baseSasDiv && subskills) {
+            baseSasDiv.addEventListener('click', function(e) {
+                // Prevent toggling if clicking on nested elements? We want to toggle on whole div.
+                e.stopPropagation(); // just to be safe
+                if (subskills.style.display === 'none' || subskills.style.display === '') {
+                    subskills.style.display = 'block';
+                } else {
+                    subskills.style.display = 'none';
+                }
+            });
+        }
     });
 </script>
 
