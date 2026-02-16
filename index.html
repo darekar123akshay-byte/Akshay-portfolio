@@ -9,7 +9,6 @@
 
     <title>Akshay Darekar | Clinical SAS Portfolio</title>
 
-    <!-- Embedded CSS (replaces external styles.css) -->
     <style>
         /*===== GOOGLE FONTS =====*/
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
@@ -162,7 +161,6 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        /*Active menu*/
         .active-link::after {
             position: absolute;
             content: '';
@@ -172,7 +170,6 @@
             top: 2rem;
             background-color: var(--first-color);
         }
-        /*=== Show menu ===*/
         .show {
             right: 0;
         }
@@ -216,7 +213,6 @@
             width: 360px;
         }
 
-        /*BUTTONS*/
         .button {
             display: inline-block;
             background-color: var(--first-color);
@@ -241,9 +237,15 @@
         .about__img {
             justify-self: center;
         }
+        /* === INCREASED IMAGE SIZE === */
         .about__img img {
-            width: 200px;
+            width: 280px;  /* was 200px */
             border-radius: .5rem;
+        }
+        @media screen and (min-width: 768px) {
+            .about__img img {
+                width: 380px;  /* was 300px */
+            }
         }
 
         /* ===== SKILLS =====*/
@@ -295,7 +297,6 @@
             border-radius: .5rem;
         }
 
-        /* Sub-skills styling */
         .subskills {
             display: none;
             margin-left: 2.5rem;
@@ -473,9 +474,6 @@
             .about__container {
                 padding-top: 2rem;
             }
-            .about__img img {
-                width: 300px;
-            }
             .skills__container {
                 grid-template-columns: repeat(2, 1fr);
                 text-align: initial;
@@ -501,13 +499,11 @@
 </head>
 <body>
 
-<!--===== HEADER =====-->
 <header class="l-header">
     <nav class="nav bd-grid">
         <div>
             <a href="#" class="nav__logo">Akshay</a>
         </div>
-
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
@@ -517,7 +513,6 @@
                 <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
         </div>
-
         <div class="nav__toggle" id="nav-toggle">
             <i class='bx bx-menu'></i>
         </div>
@@ -525,54 +520,40 @@
 </header>
 
 <main class="l-main">
-
-    <!--===== HOME =====-->
     <section class="home bd-grid" id="home" style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;">
-        <!-- Particles Background -->
         <div id="particles-js" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></div>
-
         <div style="position:relative; z-index:1;">
             <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Akshay</span><br>Statistical Programmer</h1>
-
-            <!-- LinkedIn & GitHub Icons -->
             <div style="display:flex; gap:25px; justify-content:center; margin:20px 0 10px;">
                 <a href="https://linkedin.com/in/akshay-sas" target="_blank" style="font-size: 2.5rem; color: #4c8cff;"><i class='bx bxl-linkedin-square'></i></a>
                 <a href="https://github.com/darekar123akshay-byte" target="_blank" style="font-size: 2.5rem; color: #4c8cff;"><i class='bx bxl-github'></i></a>
             </div>
-
-            <!-- Contact & Download Buttons (UPDATED CV LINK) -->
             <div style="display:flex; gap:15px; justify-content:center; margin-top:10px; flex-wrap:wrap;">
                 <a href="#contact" class="button">Contact</a>
-                <a href="https://raw.githubusercontent.com/darekar123akshay-byte/Akshay-portfolio/main/DAREKAR%20AKSHAY_SAS%20(CV).pdf" 
-                   download="DAREKAR_AKSHAY_SAS_CV.pdf" 
-                   class="button" 
-                   style="background: linear-gradient(90deg,#4c8cff,#00f0ff); color: #fff;">
-                   Download CV
-                </a>
+                <a href="https://raw.githubusercontent.com/darekar123akshay-byte/Akshay-portfolio/main/DAREKAR%20AKSHAY_SAS%20(CV).pdf" download="DAREKAR_AKSHAY_SAS_CV.pdf" class="button" style="background: linear-gradient(90deg,#4c8cff,#00f0ff); color: #fff;">Download CV</a>
             </div>
         </div>
     </section>
 
-    <!-- Particles JS -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#4c8cff" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.5 },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": { "enable": true, "distance": 150, "color": "#4c8cff", "opacity": 0.4, "width": 1 },
-                    "move": { "enable": true, "speed": 3, "out_mode": "out" }
+                particles: {
+                    number: { value: 100, density: { enable: true, value_area: 800 } },
+                    color: { value: "#4c8cff" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5 },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: "#4c8cff", opacity: 0.4, width: 1 },
+                    move: { enable: true, speed: 3, out_mode: "out" }
                 },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
-                    "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
+                interactivity: {
+                    detect_on: "canvas",
+                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                    modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
                 },
-                "retina_detect": true
+                retina_detect: true
             });
         });
     </script>
@@ -582,7 +563,7 @@
         <h2 class="section-title">About</h2>
         <div class="about__container bd-grid">
             <div class="about__img">
-                <!-- IMAGE CHANGED: from about.jpg to about.png -->
+                <!-- Image changed to about.png and size increased via CSS -->
                 <img src="about.png" alt="Akshay Darekar">
             </div>
             <div>
@@ -609,310 +590,87 @@
         <div class="skills__container bd-grid">
             <div>
                 <h2 class="skills__subtitle">Clinical SAS Skills</h2>
-                <p class="skills__text">
-                    Experienced in Clinical SAS Programming with strong knowledge of CDISC standards,
-                    SDTM, ADaM, data validation, and regulatory-compliant dataset creation.
-                </p>
+                <p class="skills__text">Experienced in Clinical SAS Programming with strong knowledge of CDISC standards, SDTM, ADaM, data validation, and regulatory-compliant dataset creation.</p>
 
-                <!-- Base SAS - Clickable main skill -->
-                <div class="skills__data" id="base-sas-main">
-                    <div class="skills__names">
-                        <i class='bx bx-data skills__icon'></i>
-                        <span class="skills__name">Base SAS</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
-                <!-- Sub-skills under Base SAS (hidden initially) -->
+                <div class="skills__data" id="base-sas-main"><div class="skills__names"><i class='bx bx-data skills__icon'></i><span class="skills__name">Base SAS</span></div><div class="skills__bar" style="width: 100%;"></div></div>
                 <div class="subskills" id="base-subskills">
-                    <div class="subskill-item">
-                        <i class='bx bx-code-block'></i>
-                        <span>DATA Step Development</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-git-merge'></i>
-                        <span>Data Manipulation  (SET/MERGE)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-sort'></i>
-                        <span>BY-Group Processing (FIRST./LAST.)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-git-branch'></i>
-                        <span>Conditional Logic & DO Loops</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-error'></i>
-                        <span>Missing Value Handling</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-brush'></i>
-                        <span>Data Cleaning & Validation</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-copy'></i>
-                        <span>Duplicate Removal (PROC SORT)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-import'></i>
-                        <span>External File Import (CSV/Excel/Raw)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-bar-chart-alt-2'></i>
-                        <span>Report Generation (PRINT/FREQ/MEANS/CONTENTS)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-calendar'></i>
-                        <span>Date & Character Functions (INTNX, INTCK, SUBSTR, SCAN, COMPRESS)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-transfer'></i>
-                        <span>Variable Conversion (INPUT/PUT)</span>
-                    </div>
+                    <div class="subskill-item"><i class='bx bx-code-block'></i><span>DATA Step Development</span></div>
+                    <div class="subskill-item"><i class='bx bx-git-merge'></i><span>Data Manipulation (SET/MERGE)</span></div>
+                    <div class="subskill-item"><i class='bx bx-sort'></i><span>BY-Group Processing</span></div>
+                    <div class="subskill-item"><i class='bx bx-git-branch'></i><span>Conditional Logic & DO Loops</span></div>
+                    <div class="subskill-item"><i class='bx bx-error'></i><span>Missing Value Handling</span></div>
+                    <div class="subskill-item"><i class='bx bx-brush'></i><span>Data Cleaning & Validation</span></div>
+                    <div class="subskill-item"><i class='bx bx-copy'></i><span>Duplicate Removal (PROC SORT)</span></div>
+                    <div class="subskill-item"><i class='bx bx-import'></i><span>External File Import</span></div>
+                    <div class="subskill-item"><i class='bx bx-bar-chart-alt-2'></i><span>Report Generation</span></div>
+                    <div class="subskill-item"><i class='bx bx-calendar'></i><span>Date & Character Functions</span></div>
+                    <div class="subskill-item"><i class='bx bx-transfer'></i><span>Variable Conversion</span></div>
                 </div>
 
-                <!-- PROC SQL -->
-                <div class="skills__data" id="proc-sql-main">
-                    <div class="skills__names">
-                        <i class='bx bx-code-alt skills__icon'></i>
-                        <span class="skills__name">PROC SQL</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
+                <div class="skills__data" id="proc-sql-main"><div class="skills__names"><i class='bx bx-code-alt skills__icon'></i><span class="skills__name">PROC SQL</span></div><div class="skills__bar" style="width: 100%;"></div></div>
                 <div class="subskills" id="proc-sql-subskills">
-                    <div class="subskill-item">
-                        <i class='bx bx-git-merge'></i>
-                        <span>Complex joins (inner, outer, cross)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-search-alt-2'></i>
-                        <span>Subqueries & correlated subqueries</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-intersect'></i>
-                        <span>Set operators (UNION, EXCEPT, INTERSECT)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-calculations'></i>
-                        <span>Aggregate functions & calculated columns</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-table'></i>
-                        <span>Table creation & modification</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-rocket'></i>
-                        <span>Query optimization & indexing</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-info-circle'></i>
-                        <span>Dictionary tables for metadata</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-git-compare'></i>
-                        <span>CASE logic</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-data'></i>
-                        <span>Oracle connectivity (LIBNAME, pass-through)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-terminal'></i>
-                        <span>Native SQL execution for Oracle</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-download'></i>
-                        <span>Large data extraction</span>
-                    </div>
+                    <div class="subskill-item"><i class='bx bx-git-merge'></i><span>Complex joins</span></div>
+                    <div class="subskill-item"><i class='bx bx-search-alt-2'></i><span>Subqueries</span></div>
+                    <div class="subskill-item"><i class='bx bx-intersect'></i><span>Set operators</span></div>
+                    <div class="subskill-item"><i class='bx bx-calculations'></i><span>Aggregate functions</span></div>
+                    <div class="subskill-item"><i class='bx bx-table'></i><span>Table creation</span></div>
+                    <div class="subskill-item"><i class='bx bx-rocket'></i><span>Query optimization</span></div>
+                    <div class="subskill-item"><i class='bx bx-info-circle'></i><span>Dictionary tables</span></div>
+                    <div class="subskill-item"><i class='bx bx-git-compare'></i><span>CASE logic</span></div>
+                    <div class="subskill-item"><i class='bx bx-data'></i><span>Oracle connectivity</span></div>
+                    <div class="subskill-item"><i class='bx bx-terminal'></i><span>Native SQL for Oracle</span></div>
+                    <div class="subskill-item"><i class='bx bx-download'></i><span>Large data extraction</span></div>
                 </div>
 
-                <!-- SAS Macro Programming -->
-                <div class="skills__data" id="sas-macro-main">
-                    <div class="skills__names">
-                        <i class='bx bx-terminal skills__icon'></i>
-                        <span class="skills__name">SAS Macro Programming</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
+                <div class="skills__data" id="sas-macro-main"><div class="skills__names"><i class='bx bx-terminal skills__icon'></i><span class="skills__name">SAS Macro</span></div><div class="skills__bar" style="width: 100%;"></div></div>
                 <div class="subskills" id="sas-macro-subskills">
-                    <div class="subskill-item">
-                        <i class='bx bx-code-curly'></i>
-                        <span>Reusable macros with parameters</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-git-branch'></i>
-                        <span>%IF/%THEN conditional logic</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-loader'></i>
-                        <span>%DO loops (iterative & conditional)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-code'></i>
-                        <span>Dynamic code generation</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-fn'></i>
-                        <span>%SYSFUNC for data step functions</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-check-circle'></i>
-                        <span>Parameter validation & default values</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-library'></i>
-                        <span>Macro libraries & autocall</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-bug'></i>
-                        <span>Debugging with MPRINT, MLOGIC, SYMBOLGEN</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-archive'></i>
-                        <span>Stored compiled macros</span>
-                    </div>
+                    <div class="subskill-item"><i class='bx bx-code-curly'></i><span>Reusable macros</span></div>
+                    <div class="subskill-item"><i class='bx bx-git-branch'></i><span>%IF/%THEN logic</span></div>
+                    <div class="subskill-item"><i class='bx bx-loader'></i><span>%DO loops</span></div>
+                    <div class="subskill-item"><i class='bx bx-code'></i><span>Dynamic code generation</span></div>
+                    <div class="subskill-item"><i class='bx bx-fn'></i><span>%SYSFUNC</span></div>
+                    <div class="subskill-item"><i class='bx bx-check-circle'></i><span>Parameter validation</span></div>
+                    <div class="subskill-item"><i class='bx bx-library'></i><span>Macro libraries</span></div>
+                    <div class="subskill-item"><i class='bx bx-bug'></i><span>Debugging options</span></div>
+                    <div class="subskill-item"><i class='bx bx-archive'></i><span>Stored compiled macros</span></div>
                 </div>
 
-                <!-- Arrays -->
-                <div class="skills__data" id="arrays-main">
-                    <div class="skills__names">
-                        <i class='bx bx-grid-alt skills__icon'></i>
-                        <span class="skills__name">Arrays</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
+                <div class="skills__data" id="arrays-main"><div class="skills__names"><i class='bx bx-grid-alt skills__icon'></i><span class="skills__name">Arrays</span></div><div class="skills__bar" style="width: 100%;"></div></div>
                 <div class="subskills" id="arrays-subskills">
-                    <div class="subskill-item">
-                        <i class='bx bx-list-ul'></i>
-                        <span>Explicit array declaration</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-list-ol'></i>
-                        <span>Implicit arrays (array-name)</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-calculations'></i>
-                        <span>Iterative calculations across variables</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-redo'></i>
-                        <span>DO loop transformations</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-cube'></i>
-                        <span>Multidimensional arrays</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-cube-alt'></i>
-                        <span>Temporary arrays for lookup</span>
-                    </div>
+                    <div class="subskill-item"><i class='bx bx-list-ul'></i><span>Explicit array</span></div>
+                    <div class="subskill-item"><i class='bx bx-list-ol'></i><span>Implicit array</span></div>
+                    <div class="subskill-item"><i class='bx bx-calculations'></i><span>Iterative calculations</span></div>
+                    <div class="subskill-item"><i class='bx bx-redo'></i><span>DO loop transforms</span></div>
+                    <div class="subskill-item"><i class='bx bx-cube'></i><span>Multidimensional</span></div>
+                    <div class="subskill-item"><i class='bx bx-cube-alt'></i><span>Temporary arrays</span></div>
                 </div>
 
-                <!-- Hash Objects -->
-                <div class="skills__data" id="hash-main">
-                    <div class="skills__names">
-                        <i class='bx bx-hash skills__icon'></i>
-                        <span class="skills__name">Hash Objects</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
+                <div class="skills__data" id="hash-main"><div class="skills__names"><i class='bx bx-hash skills__icon'></i><span class="skills__name">Hash Objects</span></div><div class="skills__bar" style="width: 100%;"></div></div>
                 <div class="subskills" id="hash-subskills">
-                    <div class="subskill-item">
-                        <i class='bx bx-key'></i>
-                        <span>Key-based in-memory lookups</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-table'></i>
-                        <span>Hash table declaration & population</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-search-alt'></i>
-                        <span>FIND, ADD, OUTPUT methods</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-sort'></i>
-                        <span>Ordered hash tables</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-duplicate'></i>
-                        <span>Handling duplicate keys</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-iterator'></i>
-                        <span>Hash iterators for sequential access</span>
-                    </div>
+                    <div class="subskill-item"><i class='bx bx-key'></i><span>Key-based lookups</span></div>
+                    <div class="subskill-item"><i class='bx bx-table'></i><span>Hash declaration</span></div>
+                    <div class="subskill-item"><i class='bx bx-search-alt'></i><span>FIND/ADD methods</span></div>
+                    <div class="subskill-item"><i class='bx bx-sort'></i><span>Ordered hash</span></div>
+                    <div class="subskill-item"><i class='bx bx-duplicate'></i><span>Duplicate keys</span></div>
+                    <div class="subskill-item"><i class='bx bx-iterator'></i><span>Hash iterators</span></div>
                 </div>
 
-                <!-- DATA Step Dynamic Functions -->
-                <div class="skills__data" id="dynamic-main">
-                    <div class="skills__names">
-                        <i class='bx bx-run skills__icon'></i>
-                        <span class="skills__name">DATA Step Dynamic Functions</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
+                <div class="skills__data" id="dynamic-main"><div class="skills__names"><i class='bx bx-run skills__icon'></i><span class="skills__name">Dynamic Functions</span></div><div class="skills__bar" style="width: 100%;"></div></div>
                 <div class="subskills" id="dynamic-subskills">
-                    <div class="subskill-item">
-                        <i class='bx bx-play-circle'></i>
-                        <span>CALL EXECUTE for runtime code</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-edit'></i>
-                        <span>CALL SYMPUTX for macro variable assignment</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-message-square-x'></i>
-                        <span>CALL MISSING for variable initialization</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-merge'></i>
-                        <span>Dynamic variable handling</span>
-                    </div>
-                    <div class="subskill-item">
-                        <i class='bx bx-timer'></i>
-                        <span>Runtime execution control</span>
-                    </div>
+                    <div class="subskill-item"><i class='bx bx-play-circle'></i><span>CALL EXECUTE</span></div>
+                    <div class="subskill-item"><i class='bx bx-edit'></i><span>CALL SYMPUTX</span></div>
+                    <div class="subskill-item"><i class='bx bx-message-square-x'></i><span>CALL MISSING</span></div>
+                    <div class="subskill-item"><i class='bx bx-merge'></i><span>Dynamic variables</span></div>
+                    <div class="subskill-item"><i class='bx bx-timer'></i><span>Runtime control</span></div>
                 </div>
 
-                <!-- SDTM, ADaM, etc. remain unchanged -->
-                <div class="skills__data">
-                    <div class="skills__names">
-                        <i class='bx bx-layer skills__icon'></i>
-                        <span class="skills__name">SDTM</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
-                <div class="skills__data">
-                    <div class="skills__names">
-                        <i class='bx bx-bar-chart-alt-2 skills__icon'></i>
-                        <span class="skills__name">ADaM</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
-                <div class="skills__data">
-                    <div class="skills__names">
-                        <i class='bx bx-check-shield skills__icon'></i>
-                        <span class="skills__name">Dataset Validation</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
-                <div class="skills__data">
-                    <div class="skills__names">
-                        <i class='bx bx-file skills__icon'></i>
-                        <span class="skills__name">CDISC Standards</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
-                <div class="skills__data">
-                    <div class="skills__names">
-                        <i class='bx bx-detail skills__icon'></i>
-                        <span class="skills__name">Define-XML</span>
-                    </div>
-                    <div class="skills__bar" style="width: 100%;"></div>
-                </div>
+                <div class="skills__data"><div class="skills__names"><i class='bx bx-layer skills__icon'></i><span class="skills__name">SDTM</span></div><div class="skills__bar" style="width: 100%;"></div></div>
+                <div class="skills__data"><div class="skills__names"><i class='bx bx-bar-chart-alt-2 skills__icon'></i><span class="skills__name">ADaM</span></div><div class="skills__bar" style="width: 100%;"></div></div>
+                <div class="skills__data"><div class="skills__names"><i class='bx bx-check-shield skills__icon'></i><span class="skills__name">Dataset Validation</span></div><div class="skills__bar" style="width: 100%;"></div></div>
+                <div class="skills__data"><div class="skills__names"><i class='bx bx-file skills__icon'></i><span class="skills__name">CDISC Standards</span></div><div class="skills__bar" style="width: 100%;"></div></div>
+                <div class="skills__data"><div class="skills__names"><i class='bx bx-detail skills__icon'></i><span class="skills__name">Define-XML</span></div><div class="skills__bar" style="width: 100%;"></div></div>
             </div>
-            <div>
-                <img src="work3.jpg" alt="Clinical SAS Skills" class="skills__img">
-            </div>
+            <div><img src="work3.jpg" alt="Clinical SAS Skills" class="skills__img"></div>
         </div>
     </section>
 
@@ -920,30 +678,12 @@
     <section class="work section" id="work">
         <h2 class="section-title">Projects</h2>
         <div class="work__container bd-grid">
-            <div class="work__img">
-                <img src="work1.jpg" alt="COVID-19 Data Analysis">
-                <p style="padding:10px; text-align:center;"><strong>COVID-19 Data Analysis</strong><br>Performed statistical analysis using PROC MEANS, FREQ, UNIVARIATE and generated summary reports.</p>
-            </div>
-            <div class="work__img">
-                <img src="work2.jpg" alt="SDTM DM Domain">
-                <p style="padding:10px; text-align:center;"><strong>SDTM Dataset Creation</strong><br>Created SDTM datasets following CDISC standards for regulatory compliance.</p>
-            </div>
-            <div class="work__img">
-                <img src="work3.jpg" alt="ADaM Dataset">
-                <p style="padding:10px; text-align:center;"><strong>ADaM Dataset Creation</strong><br>Developed analysis-ready datasets for clinical study reporting.</p>
-            </div>
-            <div class="work__img">
-                <img src="work4.jpg" alt="Define XML">
-                <p style="padding:10px; text-align:center;"><strong>Define-XML Documentation</strong><br>Generated metadata documentation aligned with CDISC standards.</p>
-            </div>
-            <div class="work__img">
-                <img src="work5.jpg" alt="Dataset Validation">
-                <p style="padding:10px; text-align:center;"><strong>Dataset Validation</strong><br>Conducted validation checks to ensure data quality and accuracy.</p>
-            </div>
-            <div class="work__img">
-                <img src="work6.jpg" alt="SAS Macro Programming">
-                <p style="padding:10px; text-align:center;"><strong>SAS Macro Automation</strong><br>Developed reusable macros to automate repetitive clinical programming tasks.</p>
-            </div>
+            <div class="work__img"><img src="work1.jpg" alt="COVID-19"><p style="padding:10px;"><strong>COVID-19 Data Analysis</strong><br>PROC MEANS, FREQ, UNIVARIATE.</p></div>
+            <div class="work__img"><img src="work2.jpg" alt="SDTM"><p style="padding:10px;"><strong>SDTM DM Domain</strong><br>CDISC-compliant datasets.</p></div>
+            <div class="work__img"><img src="work3.jpg" alt="ADaM"><p style="padding:10px;"><strong>ADaM Creation</strong><br>Analysis-ready data.</p></div>
+            <div class="work__img"><img src="work4.jpg" alt="Define-XML"><p style="padding:10px;"><strong>Define-XML</strong><br>Metadata documentation.</p></div>
+            <div class="work__img"><img src="work5.jpg" alt="Validation"><p style="padding:10px;"><strong>Dataset Validation</strong><br>Quality checks.</p></div>
+            <div class="work__img"><img src="work6.jpg" alt="Macros"><p style="padding:10px;"><strong>SAS Macros</strong><br>Automation.</p></div>
         </div>
     </section>
 
@@ -960,7 +700,6 @@
         </div>
     </section>
 
-    <!-- Success Popup -->
     <div id="success-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
         <div style="background:white; padding:30px; border-radius:12px; text-align:center; max-width:400px; margin:auto;">
             <h3 style="color:#3b5bdb;">✅ Message Sent Successfully!</h3>
@@ -972,89 +711,38 @@
     <footer class="footer">
         <p class="footer__title">Akshay Darekar</p>
         <div class="footer__social">
-            <a href="https://linkedin.com/in/akshay-sas" class="footer__icon" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
-            <a href="https://github.com/darekar123akshay-byte" class="footer__icon" target="_blank"><i class='bx bxl-github'></i></a>
+            <a href="https://linkedin.com/in/akshay-sas" class="footer__icon"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/darekar123akshay-byte" class="footer__icon"><i class='bx bxl-github'></i></a>
         </div>
         <p class="footer__copy">&#169;2026. AD. All rights reserved</p>
     </footer>
-
 </main>
 
-<!-- Scroll Reveal -->
 <script src="https://unpkg.com/scrollreveal"></script>
-
-<!-- Embedded main.js functionality + Subskill Toggle -->
 <script>
-    // Menu toggle
     const showMenu = (toggleId, navId) => {
-        const toggle = document.getElementById(toggleId),
-              nav = document.getElementById(navId);
-        if (toggle && nav) {
-            toggle.addEventListener('click', () => {
-                nav.classList.toggle('show');
-            });
-        }
+        const toggle = document.getElementById(toggleId), nav = document.getElementById(navId);
+        if (toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('show'));
     };
     showMenu('nav-toggle', 'nav-menu');
+    document.querySelectorAll('.nav__link').forEach(link => link.addEventListener('click', () => document.getElementById('nav-menu').classList.remove('show')));
 
-    // Active link removal on click
-    const navLinks = document.querySelectorAll('.nav__link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.remove('show');
-        });
-    });
+    const sr = ScrollReveal({ origin: 'top', distance: '60px', duration: 2000, delay: 200, reset: true });
+    sr.reveal('.home__title', {}); sr.reveal('.button', { delay: 200 }); sr.reveal('.home__social-icon', { interval: 200 });
+    sr.reveal('.about__img', {}); sr.reveal('.about__subtitle', { delay: 400 }); sr.reveal('.about__text', { delay: 400 });
+    sr.reveal('.skills__subtitle', {}); sr.reveal('.skills__text', {}); sr.reveal('.skills__data', { interval: 200 }); sr.reveal('.skills__img', { delay: 600 });
+    sr.reveal('.work__img', { interval: 200 }); sr.reveal('.contact__input', { interval: 200 });
 
-    // Scroll reveal
-    const sr = ScrollReveal({
-        origin: 'top',
-        distance: '60px',
-        duration: 2000,
-        delay: 200,
-        reset: true
-    });
-    sr.reveal('.home__title', {});
-    sr.reveal('.button', { delay: 200 });
-    sr.reveal('.home__social-icon', { interval: 200 });
-    sr.reveal('.about__img', {});
-    sr.reveal('.about__subtitle', { delay: 400 });
-    sr.reveal('.about__text', { delay: 400 });
-    sr.reveal('.skills__subtitle', {});
-    sr.reveal('.skills__text', {});
-    sr.reveal('.skills__data', { interval: 200 });
-    sr.reveal('.skills__img', { delay: 600 });
-    sr.reveal('.work__img', { interval: 200 });
-    sr.reveal('.contact__input', { interval: 200 });
-
-    // Popup close function
-    window.closePopup = function() {
-        document.getElementById('success-popup').style.display = 'none';
-    };
-
-    // Form submission with popup
+    window.closePopup = () => document.getElementById('success-popup').style.display = 'none';
     document.getElementById('contactForm')?.addEventListener('submit', function(e) {
         e.preventDefault();
-        const form = e.target;
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        })
-        .then(response => {
-            if (response.ok) {
-                document.getElementById('success-popup').style.display = 'flex';
-                form.reset();
-            } else {
-                alert('Error sending message. Please try again.');
-            }
-        })
-        .catch(() => alert('Error sending message. Please check your connection.'));
+        fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } })
+            .then(r => r.ok ? (document.getElementById('success-popup').style.display = 'flex', this.reset()) : alert('Error'))
+            .catch(() => alert('Error'));
     });
 
-    // Generic toggle for any main skill with subskills
-    document.addEventListener('DOMContentLoaded', function() {
-        const mainSkills = [
+    document.addEventListener('DOMContentLoaded', () => {
+        const pairs = [
             { main: 'base-sas-main', sub: 'base-subskills' },
             { main: 'proc-sql-main', sub: 'proc-sql-subskills' },
             { main: 'sas-macro-main', sub: 'sas-macro-subskills' },
@@ -1062,23 +750,11 @@
             { main: 'hash-main', sub: 'hash-subskills' },
             { main: 'dynamic-main', sub: 'dynamic-subskills' }
         ];
-
-        mainSkills.forEach(item => {
-            const mainEl = document.getElementById(item.main);
-            const subEl = document.getElementById(item.sub);
-            if (mainEl && subEl) {
-                mainEl.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    if (subEl.style.display === 'none' || subEl.style.display === '') {
-                        subEl.style.display = 'block';
-                    } else {
-                        subEl.style.display = 'none';
-                    }
-                });
-            }
+        pairs.forEach(p => {
+            const m = document.getElementById(p.main), s = document.getElementById(p.sub);
+            if (m && s) m.addEventListener('click', e => { e.stopPropagation(); s.style.display = s.style.display === 'block' ? 'none' : 'block'; });
         });
     });
 </script>
-
 </body>
 </html>
